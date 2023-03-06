@@ -11,45 +11,58 @@ const Card = ({
   guessing,
 }) => {
   const [showAnswer, setShowAnswer] = useState(false);
-
-  console.log(showAnswer);
+  const [boxNumInput, setBoxNumInput] = useState("");
   return (
-    <div className="card">
+    <>
       <div
         style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "space-between",
+          width: "80%",
+          margin: "25px auto",
+          height: "2px",
+          backgroundColor: "#575B60",
         }}
-      >
-        <p>Q {number}</p>
-        <p>
-          proficiency: {proficiency} ({guessedRight}/{guessedWrong})
-        </p>
-      </div>
-      <p>prompt: {prompt}</p>
-      <p onClick={() => setShowAnswer((prev) => !prev)}>
-        {showAnswer ? "hide answer" : "show answer"}
-      </p>
-
-      <Collapse in={showAnswer}>
-        <div style={{ width: "100%", display: "flex", flexFlow: "column" }}>
-          <p>answer: {answer}</p>
-          {guessing && (
-            <div
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <p>Wrong</p>
-              <p>Right</p>
-            </div>
-          )}
+      ></div>
+      <div className="card">
+        <div className="card-label">
+          <p>Card {number}</p>
+          <p className="card-label-stats">
+            P:{proficiency} R:{guessedRight} W:{guessedWrong}
+          </p>
         </div>
-      </Collapse>
-    </div>
+        <div className="card-question-answer-container">
+          <p>prompt: {prompt}</p>
+          <div className="card-answer-container">
+            <p>answer: </p>
+            <p onClick={() => setShowAnswer((prev) => !prev)}>
+              {showAnswer ? "hide" : "show answer"}
+            </p>
+          </div>
+          <Collapse in={showAnswer}>
+            <p className="box-answer">{answer}</p>
+            <div className="card-input-container">
+              {guessing ? (
+                <>
+                  <p className="box-button">Correct</p>
+                  <p className="box-button">Incorrect</p>
+                </>
+              ) : (
+                <div className="box-num-input">
+                  <p>Box</p>
+                  <input
+                    type="number"
+                    placeholder="box number"
+                    value={boxNumInput}
+                    min="0"
+                    max="9"
+                    onChange={(e) => setBoxNumInput(e.target.value)}
+                  ></input>
+                </div>
+              )}
+            </div>
+          </Collapse>
+        </div>
+      </div>
+    </>
   );
 };
 

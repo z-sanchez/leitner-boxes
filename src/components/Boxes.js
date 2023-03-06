@@ -6,6 +6,7 @@ const boxZeroCards = [
     prompt: "This is a prompt",
     answer: "This is an answer",
     number: 1,
+    currentBox: "Current Deck",
     proficiency: 3,
     guessedRight: 6,
     guessedWrong: 2,
@@ -14,6 +15,7 @@ const boxZeroCards = [
     prompt: "This is a prompt",
     answer: "This is an answer",
     number: 2,
+    currentBox: 0,
     proficiency: 8,
     guessedRight: 9,
     guessedWrong: 3,
@@ -25,18 +27,21 @@ const Boxes = () => {
   const otherBox = [boxZeroCards[1]];
 
   return (
-    <div style={{ width: "80%" }}>
-      <Box number={0} guessing={true} cards={currentBox}></Box>
+    <div className="box-container">
+      <p className="box-section-label">Next Session</p>
+      <Box cards={currentBox} guessing={true} boxLabel={"Current Deck"}></Box>
+
       <div
         style={{
-          width: "100%",
-          margin: "15px 0",
-          height: "4px",
-          backgroundColor: "black",
+          width: "80%",
+          margin: "25px 0",
+          height: "2px",
+          backgroundColor: "#575B60",
         }}
       ></div>
-      <Box number={1} guessing={false} cards={otherBox}></Box>
-      <Box number={2} guessing={false} cards={otherBox}></Box>
+      <p className="box-section-label">Next Session</p>
+      <Box cards={otherBox} guessing={false} boxLabel={"Box 0"}></Box>
+      <Box cards={otherBox} guessing={false} boxLabel={"Box 0"}></Box>
     </div>
   );
 };

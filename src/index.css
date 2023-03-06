@@ -1,64 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;300;400;500;600;700&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "IBM Plex Mono", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #212b31;
+  color: #ffffff;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
 }
 
 #page {
-  display: flex;
-  flex-flow: column;
-  height: 60vh;
-  width: 40%;
-  margin: 20px auto 0 auto;
-  min-width: 200px;
-  justify-content: start;
-  align-items: center;
+  width: 30%;
+  min-width: 425px;
 }
 
 #nav {
   display: flex;
-  width: 100%;
+  flex-flow: column;
   align-items: center;
-  margin-bottom: 50px;
+  justify-content: center;
+  width: 95%;
+  padding: 15px 8px;
+  background-color: #1e2427;
+}
+
+#logo {
+  font-size: 14px;
+  align-self: flex-start;
+  color: #7b7b7b;
 }
 
 #nav-buttons {
   display: flex;
-  margin: 0 20px;
 }
 
 #nav-buttons p {
-  margin: 0 5px;
+  margin: 3px 8px;
   cursor: pointer;
 }
 
-#logo {
-  font-weight: bold;
-}
-
 .active {
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid #2b9072;
 }
 
-#content {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.box {
-  margin-top: 10px;
-}
-
-.box,
-.card {
+.box-container {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  padding: 5px 20px;
   align-items: center;
-  outline: 2px solid grey;
+}
+
+.box-section-label {
+  margin: 25px 0;
+  font-size: 14px;
+}
+
+.box {
+  display: flex;
+  width: 90%;
+  flex-flow: column;
+  align-items: center;
+  outline: 1px solid #575b60;
+  border-radius: 14px;
+  padding: 3px 10px;
+  margin-top: 15px;
+}
+
+.box p {
+  margin: 5px 0;
+}
+
+.box-label {
+  align-self: flex-start;
+}
+
+.box-button {
+  outline: 1px solid #575b60;
+  border-radius: 8px;
+  padding: 5px 30px;
+  cursor: pointer;
+  align-self: self-end;
+}
+
+.box-button:hover {
+  background-color: #2b9072;
+}
+
+.card {
+  width: 95%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.card-label {
+  width: 100%;
+  align-self: flex-start;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-label p {
+  font-weight: bold;
+}
+
+.card-label-stats {
+  color: #575b60;
+  font-weight: normal;
+}
+
+.card-question-answer-container {
+  width: 100%;
+  display: flex;
+  padding: 0 0 0 15px;
+  flex-flow: column;
+}
+
+.card-answer-container p,
+.box-answer {
+  color: #575b60;
+}
+.card-answer-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.card-input-container {
+  display: flex;
+  justify-content: space-between;
 }
